@@ -32,10 +32,7 @@ const buttonGroupCommands = {
     this: EnhancedSectionInstance,
   ): Promise<NightwatchAssertionsResult<string>> {
     const originalUrl = await this.api.getCurrentUrl();
-    return this.waitUntilElementIsEnabled(
-      '@primaryButton',
-      'Primary button',
-    )
+    return this.waitUntilElementIsEnabled('@primaryButton', 'Primary button')
       .click('@primaryButton')
       .assert.not.urlEquals(
         originalUrl,

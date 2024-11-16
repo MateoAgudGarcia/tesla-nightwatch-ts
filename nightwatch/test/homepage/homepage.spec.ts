@@ -20,7 +20,7 @@ describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
     await browser.navigateTo(this.websiteUrl!);
   });
 
-  it('Homepage hero contains the expected information', async () => {
+  it('Homepage hero is working and contains the expected information', async () => {
     await homepageHero.scrollComponentIntoView();
     await homepageHero.assertHeroContentIsDisplayed();
     await homepageHero.assertHeadingIsDisplayed();

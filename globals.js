@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { NightwatchAllureReporter } from 'nightwatch-allure';
 
 export const abortOnAssertionFailure = true;

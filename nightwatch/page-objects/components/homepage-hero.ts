@@ -138,7 +138,7 @@ function homepageHeroSection(index?: number) {
     sections: {
       ...buttonGroupHorizontal(),
       ...buttonGroupVertical(),
-      ...imageNested()
+      ...imageNested(),
     },
   } satisfies SectionProperties;
 }

@@ -12,4 +12,7 @@ export default tseslint.config({
     '*.conf.cjs',
     '*/*.cjs',
   ],
+  rules: {
+    '@typescript-eslint/no-unused-expressions': 'off',
+  },
 });
