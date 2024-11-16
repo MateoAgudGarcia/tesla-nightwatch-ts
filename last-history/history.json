@@ -1,0 +1,1 @@
+{"93f6e17aba86cee807d64ced9d929771":{"statistic":{"failed":1,"broken":0,"skipped":0,"passed":0,"unknown":0,"total":1},"items":[{"uid":"f05c22d672444b15","reportUrl":"https://MateoAgudGarcia.github.io/tesla-nightwatch-ts/10//#testresult/f05c22d672444b15","status":"failed","time":{"start":1731781372880,"stop":1731781372881,"duration":1}}]}}
