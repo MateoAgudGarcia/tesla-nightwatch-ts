@@ -17,12 +17,12 @@ export function reporter(results, done) {
   reporter.write(results, done);
 }
 
-const US_REGION = '.tds-country--us > a';
+// const US_REGION = '.tds-country--us > a';
 
 export async function beforeEach(browser, done) {
-  await browser.window.maximize();
+  await browser.window.setSize(1500, 1000);
   await browser.navigateTo('https://www.tesla.com/ ');
-  await browser.click(US_REGION);
+  // await browser.click(US_REGION);
   done();
 }
 export function afterEach(browser, done) {
