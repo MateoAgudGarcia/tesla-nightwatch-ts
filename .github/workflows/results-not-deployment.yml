@@ -1,0 +1,55 @@
+name: Automation - Non-main branches
+
+on:
+  push:
+    branches-ignore:
+      - master
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        description: Environment to run
+        default: 'general'
+        options:
+          - general
+          - homepage
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      - name: Install dependencies
+        run: npm install
+      - name: Linter and Prettier
+        run: |
+          npx eslint --quiet
+          npx prettier --check .
+      - name: Run Nightwatch tests
+        run: |
+          environment=${{ github.event.inputs.environment || 'general' }}
+          xvfb-run --auto-servernum npm run test:$environment -- --env chrome
+      - name: Create reports
+        if: always()
+        run: |
+          npm install -g allure-commandline --save-dev
+          allure generate ./allure-results --clean
+          sudo apt-get install -y zip
+          zip -r allure-report.zip allure-report/
+      - name: Upload artifact for 10 days
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          path: allure-report.zip
+          retention-days: 10
