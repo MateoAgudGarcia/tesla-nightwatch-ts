@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "nightwatch --retries=3"
+    "test:general": "nightwatch --retries=3",
+    "test:homepage": "nightwatch --group=homepage --retries=3"
   },
   "license": "ISC",
   "devDependencies": {
