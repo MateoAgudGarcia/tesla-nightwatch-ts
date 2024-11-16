@@ -1,10 +1,11 @@
 {
-  "name": "nightwatch",
+  "name": "tesla-nightwatch-ts",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "test:general": "nightwatch --retries=3",
-    "test:homepage": "nightwatch --group=homepage --retries=3"
+    "test:homepage": "nightwatch --group=homepage --retries=3",
+    "test:solar": "nightwatch --group=solar --retries=3"
   },
   "license": "ISC",
   "devDependencies": {

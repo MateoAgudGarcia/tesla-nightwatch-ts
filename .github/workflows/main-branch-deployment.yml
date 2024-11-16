@@ -13,6 +13,7 @@ on:
         options:
           - general
           - homepage
+          - solar
 jobs:
   build:
     runs-on: ubuntu-latest

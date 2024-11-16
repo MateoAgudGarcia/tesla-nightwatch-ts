@@ -6,10 +6,12 @@ import {
 } from 'nightwatch';
 import { SectionCommands, SectionElements, Sections } from '../utils';
 
+const DESKTOP_VERSION = '.tcl-section-header-group__buttons-desktop';
+
 enum ButtonGroup {
   VERTICAL = 'section.tcl-button-group--type-vertical',
   HORIZONTAL = 'section.tcl-button-group--type-horizontal',
-  SINGLE_BUTTON = 'section.tcl-button-group--single-button',
+  SINGLE_BUTTON = `${DESKTOP_VERSION} > section.tcl-button-group--single-button`,
 }
 
 const buttonGroupCommands = {
@@ -21,7 +23,7 @@ const buttonGroupCommands = {
   scrollComponentIntoView(
     this: EnhancedSectionInstance,
   ): Awaitable<EnhancedSectionInstance, null> {
-    return this.scrollIntoView('@secondaryButton');
+    return this.scrollIntoView('@base');
   },
   /**
    * Click primary button and validate url
@@ -92,6 +94,9 @@ const buttonGroupCommands = {
 } satisfies SectionCommands;
 
 const buttonGroupElements = {
+  base: {
+    selector: 'a.tcl-button:last-of-type',
+  },
   primaryButton: {
     selector: 'a.tcl-button--primary',
   },

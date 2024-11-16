@@ -5,7 +5,11 @@ import {
   SectionProperties,
 } from 'nightwatch';
 import { SectionCommands, SectionElements, Sections } from './../utils';
-import { buttonGroupHorizontal, buttonGroupVertical } from './index';
+import {
+  buttonGroupHorizontal,
+  buttonGroupSingleButton,
+  buttonGroupVertical,
+} from './index';
 
 enum HeaderGroup {
   VERTICAL = 'div.tcl-gallery-advanced__vertical-header-group',
@@ -34,7 +38,7 @@ const headerGroupCommands = {
     return this.waitForElementVisible(
       '@base',
       'Wait for header group to be displayed',
-    ).assert.visible('@image', 'Validate if header group is displayed');
+    ).assert.visible('@base', 'Validate if header group is displayed');
   },
   /**
    * Validate if the header is displayed
@@ -58,22 +62,35 @@ const headerGroupCommands = {
     this: EnhancedSectionInstance,
   ): Awaitable<EnhancedSectionInstance, NightwatchAssertionsResult<boolean>> {
     return this.waitForElementVisible(
-      '@header',
+      '@copy',
       'Wait for copy to be displayed',
-    ).assert.visible('@header', 'Validate if copy is displayed');
+    ).assert.visible('@copy', 'Validate if copy is displayed');
   },
   /**
    * Validate if the buttons is displayed
    * @param {EnhancedSectionInstance} this
    * @returns
    */
-  assertGroupButtonIsDisplayed(
+  assertGroupButtonsAreDisplayed(
     this: EnhancedSectionInstance,
   ): Awaitable<EnhancedSectionInstance, NightwatchAssertionsResult<boolean>> {
     return this.waitForElementVisible(
       '@groupButtons',
       'Wait for buttons to be displayed',
     ).assert.visible('@groupButtons', 'Validate if buttons is displayed');
+  },
+  /**
+   * Validate if the buttons is displayed
+   * @param {EnhancedSectionInstance} this
+   * @returns
+   */
+  assertAsideButtonsAreDisplayed(
+    this: EnhancedSectionInstance,
+  ): Awaitable<EnhancedSectionInstance, NightwatchAssertionsResult<boolean>> {
+    return this.waitForElementVisible(
+      '@asideButtons',
+      'Wait for buttons to be displayed',
+    ).assert.visible('@asideButtons', 'Validate if buttons is displayed');
   },
 } satisfies SectionCommands;
 
@@ -87,6 +104,9 @@ const headerGroupElements = {
   copy: {
     selector: 'div.tcl-section-header-group__copy',
   },
+  asideButtons: {
+    selector: '.tds-layout-aside > div.tcl-section-header-group__buttons',
+  },
   groupButtons: {
     selector: 'div.tcl-section-header-group__buttons',
   },
@@ -98,8 +118,9 @@ function headerGroupSection(selector: HeaderGroup) {
     elements: headerGroupElements,
     commands: [headerGroupCommands],
     sections: {
-      ...buttonGroupHorizontal,
-      ...buttonGroupVertical,
+      ...buttonGroupHorizontal(),
+      ...buttonGroupVertical(),
+      ...buttonGroupSingleButton(),
     },
   } satisfies SectionProperties;
 }

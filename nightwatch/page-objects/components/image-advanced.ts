@@ -24,7 +24,7 @@ const imageAdvancedCommands = {
   scrollComponentIntoView(
     this: EnhancedSectionInstance,
   ): Awaitable<EnhancedSectionInstance, null> {
-    return this.scrollIntoView('@image');
+    return this.scrollIntoView('@asset');
   },
   /**
    * Validate if the image is displayed

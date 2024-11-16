@@ -13,3 +13,7 @@ export function layoutThreeColumns(index: number = 1): string {
 export function layoutConstrained(index: number = 1): string {
   return `div.tcl-section:nth-of-type(${index}) section.tds-layout--constrained`;
 }
+
+export function layoutShowcase(index: number = 1): string {
+  return `section.tcl-showcase:nth-of-type(${index})`;
+}

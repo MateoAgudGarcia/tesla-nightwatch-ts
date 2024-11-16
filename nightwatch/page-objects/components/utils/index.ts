@@ -2,6 +2,7 @@ import { Components } from './enum';
 import {
   layoutConstrained,
   layoutOneColumn,
+  layoutShowcase,
   layoutThreeColumns,
   layoutTwoColumns,
 } from './layouts';
@@ -18,6 +19,7 @@ export {
   layoutTwoColumns,
   layoutThreeColumns,
   layoutConstrained,
+  layoutShowcase,
   Sections,
   SectionWithoutSelector,
   SectionSelector,
