@@ -102,7 +102,7 @@ const headerGroupElements = {
     selector: 'span.tcl-section-header-group__header',
   },
   copy: {
-    selector: 'div.tcl-section-header-group__copy',
+    selector: 'div.tcl-section-header-group__copy1',
   },
   asideButtons: {
     selector: '.tds-layout-aside > div.tcl-section-header-group__buttons',

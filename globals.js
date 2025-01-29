@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { NightwatchAllureReporter } from 'nightwatch-allure';
 import fs from 'fs';
 import os from 'os';
@@ -30,6 +31,7 @@ export async function beforeEach(browser, done) {
 
   await browser.window.setSize(1500, 1000);
   await browser.navigateTo('https://www.tesla.com/ ');
+  console.log(`SESSION ID = "${browser.sessionId}"`);
   // await browser.click(US_REGION);
   done();
 }
@@ -47,7 +49,7 @@ function createEnvironmentProperties() {
       `Node.Version=${nodeVersion}`,
       `Platform=${osInfo}`,
       `Os.Version=${osVersion}`,
-      `Browser=${chromeVersion}`,
+      `Browser=Chrome ${chromeVersion}`,
     ].join('\n');
 
     const allureResultsDir = 'allure-results';
