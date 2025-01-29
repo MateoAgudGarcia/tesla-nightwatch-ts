@@ -46,11 +46,15 @@ jobs:
         run: |
           npm install -g allure-commandline --save-dev
           allure generate ./allure-results --clean
-          sudo apt-get install -y zip
-          zip -r allure-report.zip allure-report/
+      - name: Prepare artifact structure for allure report
+        if: always()
+        continue-on-error: true
+        run: |
+          mkdir -p temp-artifact/allure-report
+          cp -R allure-report/* temp-artifact/allure-report/
       - name: Upload artifact for 10 days
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          path: allure-report.zip
+          path: temp-artifact/
           retention-days: 10

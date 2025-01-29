@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test:general": "nightwatch --retries=3",
-    "test:homepage": "nightwatch --group=homepage --retries=3",
-    "test:solar": "nightwatch --group=solar --retries=3"
+    "test:general": "nightwatch --suiteRetries=3",
+    "test:homepage": "nightwatch --group=homepage --suiteRetries=3",
+    "test:solar": "nightwatch --group=solar --suiteRetries=3"
   },
   "license": "ISC",
   "devDependencies": {
