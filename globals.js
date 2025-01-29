@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { NightwatchAllureReporter } from 'nightwatch-allure';
 
 export const abortOnAssertionFailure = true;
@@ -20,8 +21,10 @@ export function reporter(results, done) {
 // const US_REGION = '.tds-country--us > a';
 
 export async function beforeEach(browser, done) {
+  process.setMaxListeners(0);
   await browser.window.setSize(1500, 1000);
   await browser.navigateTo('https://www.tesla.com/ ');
+  console.log(`SESSION ID = "${browser.sessionId}"`);
   // await browser.click(US_REGION);
   done();
 }
