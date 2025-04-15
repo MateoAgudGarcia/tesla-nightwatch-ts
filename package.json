@@ -9,18 +9,18 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
-    "@swc/core": "^1.10.11",
+    "@eslint/js": "^9.24.0",
+    "@swc/core": "^1.11.21",
     "@types/eslint__js": "^8.42.3",
-    "eslint": "^9.19.0",
+    "eslint": "^9.24.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "nightwatch": "^3.11.0",
+    "nightwatch": "^3.12.1",
     "nightwatch-allure": "^1.2.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "typescript-eslint": "8.22.0"
+    "typescript-eslint": "^8.30.1"
   }
 }
