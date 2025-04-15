@@ -1,0 +1,1 @@
+[{"uid":"f20c07d9bbf20987","name":"homepage/homepage.spec","time":{"start":1744745023986,"stop":1744745036946,"duration":12960},"status":"passed","severity":"normal"},{"uid":"63723527a340a9e2","name":"solar/solar-roof.spec","time":{"start":1744745023992,"stop":1744746142992,"duration":1119000},"status":"broken","severity":"normal"}]
