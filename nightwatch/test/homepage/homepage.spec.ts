@@ -1,5 +1,5 @@
 import { ExtendDescribeThis } from 'nightwatch';
-import { Website } from '../utils/interfaces/website';
+import { verifyLastTestOrRefresh, Website } from '../utils';
 
 describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
   this.websiteUrl = 'https://www.tesla.com/';
@@ -20,6 +20,10 @@ describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
     await browser.navigateTo(this.websiteUrl!);
   });
 
+  afterEach(async function (this: ExtendDescribeThis<Website>) {
+    await verifyLastTestOrRefresh(browser, this.websiteUrl!);
+  });
+
   it('Homepage hero is working and contains the expected information', async () => {
     await homepageHero.scrollComponentIntoView();
     await homepageHero.assertHeroContentIsDisplayed();
@@ -29,6 +33,7 @@ describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
     await homepageHero.assertEndContentIsDisplayed();
     await homepageHero.assertButtonsDesktopIsDisplayed();
 
+    await buttonGroup.scrollComponentIntoView().scrollDown();
     await buttonGroup.clickPrimaryButton();
     await buttonGroup.clickTertiaryButton();
 

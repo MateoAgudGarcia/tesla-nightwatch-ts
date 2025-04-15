@@ -1,5 +1,5 @@
 import { ExtendDescribeThis } from 'nightwatch';
-import { Website } from '../utils/interfaces/website';
+import { verifyLastTestOrRefresh, Website } from '../utils';
 
 describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
   this.websiteUrl = 'https://www.tesla.com/solarroof';
@@ -21,6 +21,10 @@ describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
 
   before(async function (this: ExtendDescribeThis<Website>) {
     await browser.navigateTo(this.websiteUrl!);
+  });
+
+  afterEach(async function (this: ExtendDescribeThis<Website>) {
+    await verifyLastTestOrRefresh(browser, this.websiteUrl!);
   });
 
   it('First image advanced is working and contains the expected information', async () => {
@@ -51,6 +55,7 @@ describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
 
     await twoButtons.scrollComponentIntoView();
     await twoButtons.clickSecondaryButton();
+    await twoButtons.scrollComponentIntoView();
     await twoButtons.clickTertiaryButton();
   });
 });

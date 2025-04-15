@@ -83,5 +83,13 @@ declare module 'nightwatch' {
      * Scroll up by 100 pixels to avoid overlaps
      */
     scrollUp(): Awaitable<this, void>;
+
+    /**
+     * Checks if the current URL matches the expected URL.
+     * Redirects to the expected URL if they do not match.
+     *
+     * @param expectedUrl - The correct URL to validate against.
+     */
+    validateAndRedirect(expectedUrl: string): Awaitable<void>;
   }
 }
