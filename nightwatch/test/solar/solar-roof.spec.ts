@@ -19,7 +19,7 @@ describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
   const verticalHeaderGroup = secondImageAdvanced.section.headerGroupVertical;
   const twoButtons = verticalHeaderGroup.section.buttonGroupHorizontal;
 
-  before(async function (this: ExtendDescribeThis<Website>) {
+  beforeEach(async function (this: ExtendDescribeThis<Website>) {
     await browser.navigateTo(this.websiteUrl!);
   });
 
