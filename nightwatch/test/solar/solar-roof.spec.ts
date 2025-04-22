@@ -1,7 +1,7 @@
 import { ExtendDescribeThis } from 'nightwatch';
 import { verifyLastTestOrRefresh, Website } from '../utils';
 
-describe('Tesla - Homepage', function (this: ExtendDescribeThis<Website>) {
+describe('Tesla - Solar Roof', function (this: ExtendDescribeThis<Website>) {
   this.websiteUrl = 'https://www.tesla.com/solarroof';
 
   const homepage = browser.page.solar_roof();
